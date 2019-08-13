@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <script type="text/javascript" charset="utf8" src="{% static 'database/jquery-3.4.1.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'database/datatables.min.js' %}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'database/datatables.min.css' %}"/>
+    </head>
+    <body>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

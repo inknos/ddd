@@ -1,0 +1,24 @@
+{% extends 'database/base.html' %}
+
+{% block content %}
+<h1>Contribution number {{ contribution.id }}</h1>
+<h3>
+    From: <a href="{% url 'contributor' contribution.name_of_contributor%}">
+    {{ contribution.name_of_contributor }}
+    </a>
+</h3>
+<h3>
+    Action: <a href="{% url 'action' contribution.action_type %}">
+    {{ contribution.action_type }}
+    </a>
+</h3>
+<h3>
+    Institution: <a href="{% url 'institution' contribution.target_institution %}">
+    {{ contribution.target_institution }}
+    </a>
+</h3>
+<h3>
+    On date: {{ contribution.date_of_contribution }}
+</h3>
+<input type="button" value="Back" onclick="window.history.back()" />
+{% endblock %}

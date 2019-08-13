@@ -1,0 +1,10 @@
+{% extends 'database/base.html'%}
+
+{% block content %}
+<ul>
+    <li><a href="{% url 'contributors' %}">Contributors</a></li>
+    <li><a href="{% url 'institutions' %}">Institutions</a></li>
+    <li><a href="{% url 'actions' %}">Actions</a></li>
+    <li><a href="{% url 'contributions' %}">Contributions</a></li>
+</ul>
+{% endblock %}

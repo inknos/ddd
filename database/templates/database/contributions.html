@@ -1,0 +1,36 @@
+{% extends 'database/base.html' %}
+
+{% block content %}
+{% if contributions_list %}
+<table id="contributions_table" class="display">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>From</th>
+            <th>Action</th>
+            <th>Institution</th>
+            <th> Date </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for contribution in contributions_list %}
+        <tr>
+            <td><a href="{% url 'contribution' contribution.id %}" }"> {{ contribution.id }} </a></td>
+            <td><a href="{% url 'contributor' contribution.name_of_contributor %}" }">{{ contribution.name_of_contributor }}</a></td>
+            <td><a href="{% url 'action' contribution.action_type %}">{{ contribution.action_type }}</a></td>
+            <td><a href="{% url 'institution' contribution.target_institution %}" }"> {{ contribution.target_institution }} </a></td>
+            <td>{{ contribution.date_of_contribution }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<script>
+ $(document).ready( function () {
+     $('#contributions_table').DataTable();
+ } );
+</script>
+{% else %}
+<p>No contributions are available.</p>
+{% endif %}
+<input type="button" value="Back" onclick="window.history.back()" />
+{% endblock %}

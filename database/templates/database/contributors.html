@@ -1,0 +1,30 @@
+{% extends 'database/base.html'%}
+
+{% block content %}
+{% if contributors_list %}
+<table id="contributors_table" class="display">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th> Date </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for contributor in contributors_list %}
+        <tr>
+            <td><a href="{% url 'contributor' contributor.name %}">{{ contributor.name }}</a></td>
+            <td>{{ contributor.date_of_addition }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<script>
+ $(document).ready( function () {
+     $('#contributors_table').DataTable();
+ } );
+</script>
+{% else %}
+<p>No contributors are available.</p>
+{% endif %}
+<input type="button" value="Back" onclick="window.history.back()" />
+{% endblock %}

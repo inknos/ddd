@@ -1,0 +1,7 @@
+{% extends 'database/base.html' %}
+
+{% block content %}
+<h1>{{ contributor.name }}</h1>
+<h3>{{ contributor.date_of_addition }}</h3>
+<input type="button" value="Back" onclick="window.history.back()" />
+{% endblock %}

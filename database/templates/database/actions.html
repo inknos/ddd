@@ -1,0 +1,30 @@
+{% extends 'database/base.html' %}
+
+{% block content %}
+{% if actions_list %}
+<table id="actions_table" class="display">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th> Date </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for action in actions_list %}
+        <tr>
+            <td><a href="{% url 'action' action.name %}">{{ action.name }}</a></td>
+            <td>{{ action.date_of_addition }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<script>
+ $(document).ready( function () {
+     $('#actions_table').DataTable();
+ } );
+</script>
+{% else %}
+<p>No actions are available.</p>
+{% endif %}
+<input type="button" value="Back" onclick="location.href=\'{% url 'index'%}\'" />
+{% endblock %}

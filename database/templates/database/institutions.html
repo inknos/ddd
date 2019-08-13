@@ -1,0 +1,30 @@
+{% extends 'database/base.html'%}
+
+{% block content %}
+{% if institutions_list %}
+<table id="institutions_table" class="display">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th> Date </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for institution in institutions_list %}
+        <tr>
+            <td><a href="{% url 'institution' institution.name %}">{{ institution.name }}</a></td>
+            <td>{{ institution.date_of_addition }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<script>
+ $(document).ready( function () {
+     $('#institutions_table').DataTable();
+ } );
+</script>
+{% else %}
+<p>No institutions are available.</p>
+{% endif %}
+<input type="button" value="Back" onclick="window.history.back()" />
+{% endblock %}
