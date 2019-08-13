@@ -38,10 +38,14 @@ def contributor(request, name):
         contributor = Contributor.objects.get(name=name)
     except:
         raise Http404("Contributor does not exist, create one!")
+    contributions_list = Contribution.objects.filter(name_of_contributor__name=name)
     return render(
         request,
         'database/contributor.html',
-        { "contributor" : contributor}
+        {
+            "contributor" : contributor,
+            "contributions_list" : contributions_list,
+        }
     )
 
 @login_required
@@ -50,10 +54,14 @@ def institution(request, name):
         institution = Institution.objects.get(name=name)
     except:
         raise Http404("Institution does not exist, create one!")
+    contributions_list = Contribution.objects.filter(target_institution__name=name)
     return render(
         request,
         'database/institution.html',
-        { "institution" : institution}
+        {
+            "institution" : institution ,
+            "contributions_list": contributions_list
+        }
     )
 
 @login_required
@@ -62,10 +70,14 @@ def action(request, name):
         action = Action.objects.get(name=name)
     except:
         raise Http404("Action does not exist, create one!")
+    contributions_list = Contribution.objects.filter(action_type__name=name)
     return render(
         request,
         'database/action.html',
-        { "action" : action }
+        {
+            "action" : action,
+            "contributions_list" : contributions_list,
+        }
     )
 
 @login_required
