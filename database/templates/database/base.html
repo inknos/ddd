@@ -5,11 +5,28 @@
         <script type="text/javascript" charset="utf8" src="{% static 'database/jquery-3.4.1.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'database/datatables.min.js' %}"></script>
         <link rel="stylesheet" type="text/css" href="{% static 'database/datatables.min.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'database/style.css' %}" />
     </head>
     <body>
         <header>
             <a href="{% url 'index' %}">database</a>
         </header>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="{% url 'contributors' %}">Contributors</a></li>
+                <li><a href="{% url 'institutions' %}">Institutions</a></li>
+                <li><a href="{% url 'actions' %}">Actions</a></li>
+                <li><a href="{% url 'contributions' %}">Contributions</a></li>
+                <li><a href="#">Admin</a></li>
+            </ul>
+        </nav>
+        {% block breadcrumb %}
+        <nav class="breadcrumb">
+        <ul>
+            <li><a href="{% url 'index' %}">Database</a></li>
+        </ul>
+        </nav>
+        {% endblock breadcrumb %}
         <main>
             {% block content %}
             {% endblock %}

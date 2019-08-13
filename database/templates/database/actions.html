@@ -1,4 +1,12 @@
 {% extends 'database/base.html' %}
+{% block breadcrumb %}
+<nav class="breadcrumb">
+<ul class>
+    <li><a href="{% url 'index' %}">Database</a></li>
+    <li><a href="{% url 'actions' %}">Actions</a></li>
+</ul>
+</nav>
+{% endblock breadcrumb %}
 
 {% block content %}
 {% if actions_list %}

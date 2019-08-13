@@ -1,0 +1,56 @@
+html, body {
+    background-color: #ddd;
+    font-family: sans-serif;
+    color: #333;
+}
+
+a:link, a:visited {
+    color: #333;
+    text-decoration:none;
+    border: #333  solid 1px;
+    border-radius: 0.5em 0 0.5em 0;
+}
+
+a:hover, a:active{
+    color: #ddd;
+    background-color: #333;
+    text-decoration: none;
+}
+
+.header-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.header-nav li {
+    float: left;
+    color: #ddd;
+}
+
+.header-nav li a {
+    display: block;
+    color: #ddd;
+    text-align: center;
+    padding: 0.2em 1em;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+.header-nav li a:hover {
+    background-color: #111;
+}
+.breadcrumb ul {
+    display: flex;
+    list-style:none;
+}
+
+.breadcrumb li::before {
+    content: "\00a0/ ";
+}
+
+.breadcrumb li:first-child::before {
+    content: "";
+}
