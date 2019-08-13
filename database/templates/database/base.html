@@ -7,7 +7,13 @@
         <link rel="stylesheet" type="text/css" href="{% static 'database/datatables.min.css' %}"/>
     </head>
     <body>
-        {% block content %}
-        {% endblock %}
+        <header>
+            <a href="{% url 'index' %}">database</a>
+        </header>
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+        <footer></footer>
     </body>
 </html>
