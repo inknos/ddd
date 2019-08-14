@@ -55,12 +55,14 @@ def institution(request, name):
     except:
         raise Http404("Institution does not exist, create one!")
     contributions_list = Contribution.objects.filter(target_institution__name=name)
+    contributors_list = Contributor.objects.filter(institution__name=name)
     return render(
         request,
         'database/institution.html',
         {
             "institution" : institution ,
-            "contributions_list": contributions_list
+            "contributions_list": contributions_list,
+            "contributors_list" : contributors_list,
         }
     )
 

@@ -92,3 +92,14 @@ class Contribution(models.Model):
     def __str__(self):
         return self.date_of_contribution.strftime('%m/%d/%Y') + ": " + self.name_of_contributor.name + ": " + self.action_type.name + " " + self.target_institution.name
 
+class Events(models.Model):
+    name = models.CharField(
+        max_length=200,
+        help_text="Name of the Event"
+    )
+
+    organizer = models.ForeignKey(
+        'Institution',
+        on_delete=models.CASCADE,
+        help_text="Institution that created the event",
+    )

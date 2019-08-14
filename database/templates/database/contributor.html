@@ -10,6 +10,9 @@
 {% endblock breadcrumb %}
 {% block content %}
 <h1>{{ contributor.name }}</h1>
-<h3>{{ contributor.date_of_addition }}</h3>
+<h3>Email: {{ contributor.email }} </h3>
+<h3>Belonging institution: {{ contributor.institution }}</h3>
+<p>Date of modification {{ contributor.date_of_modification }}</p>
+<p>Date of addition: {{ contributor.date_of_addition }}</p>
 {% include 'database/contributions_table.html' %}
 {% endblock %}

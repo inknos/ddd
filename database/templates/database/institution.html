@@ -11,5 +11,33 @@
 {% block content %}
 <h1>{{ institution.name }}</h1>
 <h3>{{ institution.date_of_addition }}</h3>
+{% if contributors_list %}
+<hr>
+<hr>
+<h3>Contributors belonging to {{institution.name}}</h3>
+<table id="contributors_table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for contributor in contributors_list %}
+        <tr>
+            <td><a href="{% url 'contributor' contributor.name %}">{{ contributor.name }}</a></td>
+            <td>{{contributor.date_of_addition}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<script>
+ $(document).ready( function () {
+     $('#contributors_table').DataTable();
+ } );
+</script>
+{% else %}
+{% endif %}
+
 {% include 'database/contributions_table.html' %}
 {% endblock %}
