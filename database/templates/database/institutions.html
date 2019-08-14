@@ -1,5 +1,12 @@
 {% extends 'database/base.html'%}
-
+{% block breadcrumb %}
+<nav class="breadcrumb">
+    <ul class>
+        <li><a href="{% url 'index' %}">Database</a></li>
+        <li><a href="{% url 'institutions' %}">Institutions</a></li>
+    </ul>
+</nav>
+{% endblock breadcrumb %}
 {% block content %}
 {% if institutions_list %}
 <table id="institutions_table" class="display">
@@ -26,5 +33,4 @@
 {% else %}
 <p>No institutions are available.</p>
 {% endif %}
-<input type="button" value="Back" onclick="window.history.back()" />
 {% endblock %}

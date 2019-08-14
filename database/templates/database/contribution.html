@@ -1,5 +1,13 @@
 {% extends 'database/base.html' %}
-
+{% block breadcrumb %}
+<nav class="breadcrumb">
+    <ul class>
+        <li><a href="{% url 'index' %}">Database</a></li>
+        <li><a href="{% url 'actions' %}">Actions</a></li>
+        <li><a href="{% url 'contribution' contribution.id %}"> Contribution #{{ contribution.id }}</a></li>
+    </ul>
+</nav>
+{% endblock breadcrumb %}
 {% block content %}
 <h1>Contribution number {{ contribution.id }}</h1>
 <h3>
@@ -20,5 +28,4 @@
 <h3>
     On date: {{ contribution.date_of_contribution }}
 </h3>
-<input type="button" value="Back" onclick="window.history.back()" />
 {% endblock %}

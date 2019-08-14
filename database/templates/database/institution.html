@@ -1,8 +1,15 @@
 {% extends 'database/base.html' %}
-
+{% block breadcrumb %}
+<nav class="breadcrumb">
+    <ul class>
+        <li><a href="{% url 'index' %}">Database</a></li>
+        <li><a href="{% url 'actions' %}">Actions</a></li>
+        <li><a href="{% url 'institution' institution.name %}">{{ institution.name }}</a></li>
+    </ul>
+</nav>
+{% endblock breadcrumb %}
 {% block content %}
 <h1>{{ institution.name }}</h1>
 <h3>{{ institution.date_of_addition }}</h3>
 {% include 'database/contributions_table.html' %}
-<input type="button" value="Back" onclick="window.history.back()" />
 {% endblock %}

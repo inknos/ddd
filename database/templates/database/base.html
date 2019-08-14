@@ -8,8 +8,15 @@
         <link rel="stylesheet" type="text/css" href="{% static 'database/style.css' %}" />
     </head>
     <body>
-        <header>
-            <a href="{% url 'index' %}">database</a>
+        <header class="page-header">
+            <nav class="user-panel">
+                <ul>
+                    <li><a>{{ user.get_username }}</a></li>
+                    <li><a>logout</a></li>
+                </ul>
+            </nav>
+            <h1 class="title"><a href="{% url 'index' %}">database</a></h1>
+
         </header>
         <nav class="header-nav">
             <ul>

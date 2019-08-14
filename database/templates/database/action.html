@@ -1,5 +1,13 @@
 {% extends 'database/base.html' %}
-
+{% block breadcrumb %}
+<nav class="breadcrumb">
+    <ul class>
+        <li><a href="{% url 'index' %}">Database</a></li>
+        <li><a href="{% url 'actions' %}">Actions</a></li>
+        <li><a href="{% url 'action' action.name %}">{{ action.name }}</a></li>
+    </ul>
+</nav>
+{% endblock breadcrumb %}
 {% block content %}
 <h1>{{ action.name }}</h1>
 <h3>{{ action.date_of_addition }}</h3>
